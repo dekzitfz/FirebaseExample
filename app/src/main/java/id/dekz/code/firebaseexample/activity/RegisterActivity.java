@@ -25,7 +25,6 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import id.dekz.code.firebaseexample.MainActivity;
 import id.dekz.code.firebaseexample.R;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -110,9 +109,12 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressRegister.dismiss();
                         if(task.isSuccessful()){
-                            Toast.makeText(RegisterActivity.this, "Register Success!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Register Success! Please Login", Toast.LENGTH_LONG).show();
+                            Intent login = new Intent(RegisterActivity.this, LoginActivity.class);
+                            login.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(login);
                         }else{
-                            Toast.makeText(RegisterActivity.this, "Register Failed! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Register Failed! "+task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 })
@@ -121,7 +123,6 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         progressRegister.dismiss();
                         Log.d("authFailure",e.getMessage());
-                        //Toast.makeText(RegisterActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

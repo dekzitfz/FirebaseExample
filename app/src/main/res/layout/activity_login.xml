@@ -28,10 +28,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:inputType="text"
                     android:lines="1"
                     android:id="@+id/etLoginEmail"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/colorAccent"
+                    android:inputType="textEmailAddress" />
 
             </android.support.design.widget.TextInputLayout>
 
