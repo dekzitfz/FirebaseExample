@@ -30,7 +30,7 @@
                     android:hint="Email"
                     android:inputType="text"
                     android:lines="1"
-                    android:id="@+id/etLoginEmail"
+                    android:id="@+id/etRegisterEmail"
                     android:textColor="@color/colorAccent" />
 
             </android.support.design.widget.TextInputLayout>
@@ -45,7 +45,22 @@
                     android:hint="Password"
                     android:inputType="textPassword"
                     android:lines="1"
-                    android:id="@+id/etLoginPassword"
+                    android:id="@+id/etRegisterPassword"
+                    android:textColor="@color/colorAccent" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:id="@+id/etRegisterPasswordConfirm"
                     android:textColor="@color/colorAccent" />
 
             </android.support.design.widget.TextInputLayout>
@@ -53,8 +68,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="LOGIN"
-                android:id="@+id/btnLogin"
+                android:text="SIGN UP"
+                android:id="@+id/btnRegister"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
@@ -70,29 +85,19 @@
             android:src="@drawable/firebaselogo"
             android:layout_above="@+id/linearLayout"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="25dp" />
+            android:layout_marginBottom="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Forgot Your Password?"
-            android:id="@+id/textView"
+            android:text="Already Have Account? Login Now!"
+            android:id="@+id/tvLogin"
             android:layout_below="@+id/linearLayout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:textColor="@color/colorAccent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Dont Have An Account? Sign Up Now Here"
-            android:id="@+id/tvRegister"
-            android:layout_below="@+id/textView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:textColor="@color/accent_material_dark" />
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
