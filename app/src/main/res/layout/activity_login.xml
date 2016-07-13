@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:dividerPadding="10dp"
+            android:id="@+id/linearLayout"
+            android:padding="10dp">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:id="@+id/etLoginEmail"
+                    android:textColor="@color/colorAccent" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:id="@+id/etLoginPassword"
+                    android:textColor="@color/colorAccent" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOGIN"
+                android:id="@+id/btnLogin"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:background="@color/colorAccent" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/firebaselogo"
+            android:layout_above="@+id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp" />
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+
