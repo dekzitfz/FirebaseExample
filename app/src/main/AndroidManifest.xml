@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.dekz.code.firebaseexample">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".FirebaseExample"
         android:allowBackup="true"
