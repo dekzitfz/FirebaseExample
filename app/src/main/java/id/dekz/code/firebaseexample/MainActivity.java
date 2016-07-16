@@ -6,18 +6,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import id.dekz.code.firebaseexample.activity.LoginActivity;
 import id.dekz.code.firebaseexample.util.Session;
 
 public class MainActivity extends AppCompatActivity {
 
     private Session session;
+    @BindView(R.id.adView)AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        ButterKnife.bind(this);
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
         session = new Session(MainActivity.this);
 
     }
@@ -27,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         if(session.isLoggedIn()){
             getSupportActionBar().setSubtitle(session.getEmailSession());
+            AdRequest adRequest = new AdRequest.Builder()
+                    .addTestDevice("36D3E65086487184A8FD1C7F00B1C77A")
+                    .build();
+            mAdView.loadAd(adRequest);
         }else{
             Intent login = new Intent(MainActivity.this, LoginActivity.class);
             login.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
