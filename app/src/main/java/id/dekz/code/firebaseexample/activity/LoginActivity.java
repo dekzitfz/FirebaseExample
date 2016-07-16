@@ -24,7 +24,9 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import id.dekz.code.firebaseexample.MainActivity;
 import id.dekz.code.firebaseexample.R;
+import id.dekz.code.firebaseexample.util.Session;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -89,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void loginProccess(String email, String pass){
+    private void loginProccess(final String email, String pass){
         progressLogin = ProgressDialog.show(
                 this,
                 "Login","Login in progress, please wait..",
@@ -102,7 +104,13 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressLogin.dismiss();
                         if(task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
+                            /*Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();*/
+                            Session session = new Session(LoginActivity.this);
+                            session.saveLoginSession(email);
+                            Intent main = new Intent(LoginActivity.this, MainActivity.class);
+                            main.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(main);
+                            LoginActivity.this.finish();
                         }else{
                             Toast.makeText(LoginActivity.this, "Login Failed! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
